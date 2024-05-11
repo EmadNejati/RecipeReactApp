@@ -1,0 +1,40 @@
+.product__card {
+    width: 20rem;
+    height: 25rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(255, 158, 46);
+    position: relative;
+    margin: 5rem;
+}
+
+.product__card img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+}
+
+.card__dsc {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    /* backdrop-filter: blur(10px); */
+    opacity: 0.8;
+    border-radius: 1.5rem;
+    color: white;
+    position: absolute;
+    transition: opacity 1.5s;
+}
+.card__dsc:hover{
+    opacity: 0;
+}

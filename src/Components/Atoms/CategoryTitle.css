@@ -1,0 +1,12 @@
+.category__title{
+    width: 80vw;
+    height: 8rem;
+
+    margin: 0 auto;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 1.5rem;
+}
