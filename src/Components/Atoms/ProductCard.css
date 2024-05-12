@@ -8,7 +8,7 @@
     align-items: center;
     background-color: rgb(255, 158, 46);
     position: relative;
-    margin: 5rem;
+    margin: 0 auto;
 }
 
 .product__card img {

@@ -1,5 +1,14 @@
+.header{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(143, 143, 143);
+    color: white;
+    font-size: 1.5rem;
+}
 .header__container {
-    width: 80vw;
+    width: 80%;
     height: 10rem;
     display: grid;
     grid-template-areas:
@@ -8,12 +17,9 @@
         '. . . . . . . . .'
         'country country country country country . . . .'
     ;
-    color: white;
     align-items: center;
-    background-color: rgb(143, 143, 143);
-    font-size: 1.5rem;
-    margin: 0 auto;
 }
+
 
 .header__title {
     grid-area: title;
@@ -25,7 +31,7 @@
     grid-area: search;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -46,4 +52,7 @@
 }
 .country__category li{
     margin-left: 10px;
+}
+.search__icon{
+    margin-left: -6%;
 }
