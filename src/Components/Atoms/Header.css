@@ -1,15 +1,4 @@
-.header{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(143, 143, 143);
-    color: white;
-    font-size: 1.5rem;
-}
 .header__container {
-    width: 80%;
-    height: 10rem;
     display: grid;
     grid-template-areas:
         'title title . . . . . search search '
@@ -17,42 +6,16 @@
         '. . . . . . . . .'
         'country country country country country . . . .'
     ;
-    align-items: center;
 }
-
 
 .header__title {
     grid-area: title;
-    padding: 10px 10px;
-    font-size: 2.5rem;
 }
 
 .search__bar {
     grid-area: search;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.search__bar input {
-    width: 50%;
-    height: 3.5rem;
-    border-radius: 1rem;
-    padding-left: 10px;
 }
 
 .country__category {
     grid-area: country;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    padding: 10px 0;
-}
-.country__category li{
-    margin-left: 10px;
-}
-.search__icon{
-    margin-left: -6%;
 }

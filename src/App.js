@@ -18,7 +18,7 @@ function App() {
   const [countryList,setCountryList]=useState(["iran", "iraq", "america", "england" ,"norway" , "turkey"])
 
   return (
-    <div className="app__container">
+    <div className="app__container w-full flex flex-col my-0 mx-auto">
       <Header countryList={countryList} />
       <ProductRow categoryTitle={categoryTitle[0]} products={productList}  />
       <ProductRow categoryTitle={categoryTitle[1]} products={productList}  />
