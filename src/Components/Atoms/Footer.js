@@ -6,7 +6,7 @@ import { CiTwitter } from "react-icons/ci";
 function Footer({ instagramUrl, twitterUrl, telegamUrl ,address , phone}) {
 
     return (
-        <div className="footer__container w-full h-40 gap-3 text-2xl items-center text-black mt-8 bg-gray-400">
+        <div className="footer__container w-full h-40 gap-3 text-2xl items-center text-black mt-8 bg-my_bg_gray">
             <div className="social__media flex flex-row items-center justify-center ml-0">
                 <a href="https://instagram.com"><FaInstagram /></a>
                 <a href="https://telegram.com"><PiTelegramLogoLight /></a>
