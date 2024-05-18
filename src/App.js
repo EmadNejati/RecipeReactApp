@@ -1,6 +1,6 @@
 import './App.css';
-import Footer from './Components/Atoms/Footer';
-import Header from './Components/Atoms/Header';
+import Footer from './Components/Molecules/Footer';
+import Header from './Components/Molecules/Header';
 import ProductRow from './Components/Molecules/ProductRow';
 import Navbar from './Components/Atoms/Navbar';
 import { useState } from 'react';
