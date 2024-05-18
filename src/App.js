@@ -9,10 +9,10 @@ function App() {
   
 
   const [productList,setProductList]=useState([
-    {productImgUrl:"images/burger.png" ,productDsc:"this is test 1"},
-    {productImgUrl:"images/pizza.PNG" ,productDsc:"this is test 1"},
-    {productImgUrl:"images/sushi.png" ,productDsc:"this is test 1"},
-    {productImgUrl:"images/salad.png" ,productDsc:"this is test 1"},
+    {productImgUrl:"images/burger.png" ,productDsc:"this is test 1 this is test 1 this is test 1 this is test 1 this is test 1 this is test 1"},
+    {productImgUrl:"images/pizza.PNG" ,productDsc:"this is test 1 this is test 1 this is test 1 this is test 1 this is test 1 this is test 1"},
+    {productImgUrl:"images/sushi.png" ,productDsc:"this is test 1 this is test 1 this is test 1 this is test 1 this is test 1 this is test 1"},
+    {productImgUrl:"images/salad.png" ,productDsc:"this is test 1 this is test 1 this is test 1 this is test 1 this is test 1 this is test 1"},
 
   ])
 
@@ -21,7 +21,7 @@ function App() {
   const [countryList,setCountryList]=useState(["Iran", "Iraq", "Egypt", "England" ,"Norway" , "Turkey"])
 
   return (
-    <div className="app__container w-full flex flex-col my-0 mx-auto">
+    <div className="app__container w-full flex flex-col justify-center items-center my-0 mx-auto">
       <Header countryList={countryList} />
       <ProductRow categoryTitle={categoryTitle[0]} products={productList}  />
       <ProductRow categoryTitle={categoryTitle[1]} products={productList}  />
