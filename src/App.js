@@ -18,7 +18,7 @@ function App() {
   const [loading, setLoading]= useState(true)
 
   useEffect(() => {
-    fetch('https://api.spoonacular.com/recipes/random?apiKey=583e681cdabc4c64b29c12f7c9f9f933&number=10')
+    fetch('https://api.spoonacular.com/recipes/random?apiKey=2dd851c086554e79ae1c6c28e8fce939&number=10')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok' + response.statusText);
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="app__container w-full flex flex-col justify-center items-center my-0 mx-auto">
       <Header countryList={countryList} />
-      <Recommanded imageUrl={data.recipes[0].image} recommandedTitle={JSON.stringify(data.recipes[0].title)} recommandedText={JSON.stringify(data.recipes[0].summary)} />
+      <Recommanded imageUrl={data.recipes[0].image} recommandedTitle={JSON.stringify(data.recipes[0].title)} recommandedText={data.recipes[0].summary} />
       <ProductRow categoryTitle={categoryTitle[0]} products={data.recipes.slice(1,5)} />
       <ProductRow categoryTitle={categoryTitle[1]} products={data.recipes.slice(5,9)} />
       <Footer address={"Tehran - Pasdaran - G8"} phone={"021-224376901"} />
