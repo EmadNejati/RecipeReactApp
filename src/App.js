@@ -2,47 +2,91 @@ import './App.css';
 import Footer from './Components/Molecules/Footer';
 import Header from './Components/Molecules/Header';
 import ProductRow from './Components/Molecules/ProductRow';
-import Navbar from './Components/Atoms/Navbar';
 import Recommanded from './Components/Molecules/Recommanded';
 import { useEffect, useState } from 'react';
 
 function App() {
 
 
-  const [categoryTitle, setCategoryTitle] = useState(["Popular Recupes", "Vegetarian Items"])
+  const [categoryTitle, setCategoryTitle] = useState(["Popular Recipes", "Vegetarian Items"])
 
   const [countryList, setCountryList] = useState(["Iran", "Iraq", "Egypt", "England", "Norway", "Turkey"])
 
-  const [data, setData] = useState([])
 
-  const [loading, setLoading]= useState(true)
+  const [vegData, setVegData] = useState(null);
+  const [popularData, setPopularData] = useState(null);
+  const [recomRecipe , setRecomRecipe] = useState(null);
 
+  const [loadingRecom,setLoadingRecom]= useState();
+  const [loadingVeg, setLoadingVeg] = useState(true);
+  const [loadingPopular, setLoadingPopular] = useState(true);
+
+  
   useEffect(() => {
-    fetch('https://api.spoonacular.com/recipes/random?apiKey=2dd851c086554e79ae1c6c28e8fce939&number=10')
+    fetch('https://api.spoonacular.com/recipes/random?apiKey=2dd851c086554e79ae1c6c28e8fce939&number=1')
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok' + response.statusText);
-
+          throw new Error('Network response was not ok: ' + response.statusText);
         }
         return response.json();
       })
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-        // console.log(JSON.stringify(data).recipes);
+      .then((recomRecipe) => {
+        setRecomRecipe(recomRecipe);
+        setLoadingRecom(false);
       })
-  }, [])
+      .catch((error) => {
+        console.error('Fetch error:', error);
+        setLoadingRecom(false);
+      });
+  }, []);
 
-  if(loading){
-    return <div>Loading data is processing </div>
+  useEffect(() => {
+    fetch('https://api.spoonacular.com/recipes/random?apiKey=2dd851c086554e79ae1c6c28e8fce939&number=4&diet=vegetarian')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((vegData) => {
+        setVegData(vegData);
+        setLoadingVeg(false);
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
+        setLoadingVeg(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('https://api.spoonacular.com/recipes/random?apiKey=2dd851c086554e79ae1c6c28e8fce939&number=4')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then((popularData) => {
+        setPopularData(popularData);
+        setLoadingPopular(false);
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
+        setLoadingPopular(false);
+      });
+  }, []);
+
+  if (loadingVeg || loadingPopular || loadingRecom) {
+    return <div>Loading...</div>;
   }
+
 
   return (
     <div className="app__container w-full flex flex-col justify-center items-center my-0 mx-auto">
       <Header countryList={countryList} />
-      <Recommanded imageUrl={data.recipes[0].image} recommandedTitle={JSON.stringify(data.recipes[0].title)} recommandedText={data.recipes[0].summary} />
-      <ProductRow categoryTitle={categoryTitle[0]} products={data.recipes.slice(1,5)} />
-      <ProductRow categoryTitle={categoryTitle[1]} products={data.recipes.slice(5,9)} />
+      <Recommanded imageUrl={recomRecipe.recipes[0].image} recommandedTitle={JSON.stringify(recomRecipe.recipes[0].title)} recommandedText={recomRecipe.recipes[0].summary} />
+      <ProductRow categoryTitle={categoryTitle[0]} products={popularData.recipes} />
+      <ProductRow categoryTitle={categoryTitle[1]} products={vegData.recipes} />
       <Footer address={"Tehran - Pasdaran - G8"} phone={"021-224376901"} />
     </div>
   );
