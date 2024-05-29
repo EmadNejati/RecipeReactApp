@@ -8,7 +8,7 @@ function ProductRow({ categoryTitle, products }) {
             <h2 className="category__title flex items-center rounded-3xl  w-full h-32 mx-auto text-2xl  font-bold">{categoryTitle}</h2>
             <div className='products w-full flex flex-col justify-center items-center mx-0 my-auto sm:flex-row'>
                 {products.map((product, index) => (
-                    <ProductCard key={index} productDsc={product.title} productImgUrl={product.image} />
+                    <ProductCard key={index} product={product} />
                 ))}
             </div>
         </div>

@@ -1,6 +1,12 @@
 import { useState } from "react";
-import "./ProductCard.css"
-function ProductCard({ productDsc, productImgUrl }) {
+import "./ProductCard.css";
+import { useNavigate } from "react-router-dom";
+
+function ProductCard({ product }) {
+    const productDsc = product.title
+    const productImgUrl = product.image
+
+    let navigate=useNavigate()
 
     const [captionStyle, setCaptionStyle] = useState("card__dsc absolute bottom-0 left-0 text-white rounded-2xl p-5 flex flex-row justify-start items-end  mt-20 z-50  text-2xl font-bold text-my_white ")
 
@@ -20,9 +26,12 @@ function ProductCard({ productDsc, productImgUrl }) {
         }
 
     }
+    function clickHandler(Product) {
+        navigate("Product");
+    }
 
     return (
-        <div className={cardStyle}>
+        <div className={cardStyle} onClick={()=>clickHandler("Product")}>
             <img src={productImgUrl} className="flex  w-full h-full rounded-3xl  absolute top-0 left-0" />
             <div className={captionStyle}>{productDsc}</div>
             <div onMouseEnter={() => { hoverCard(true) }} onMouseLeave={() => { hoverCard(false) }} className="shadow__layer absolute top-0 left-0  w-full h-full bg-my_dark_gray rounded-2xl opacity-40 hover:opacity-0 transition-opacity duration-500 "></div>
